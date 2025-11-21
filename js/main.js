@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         obstacle.classList.add('obstaculo');
         juegoContenedor.appendChild(obstacle);
 
-        // ⭐ AUMENTAR VELOCIDAD SEGÚN NIVEL ⭐
+
         let velocidad = 10 + (nivel - 1) * 2;
 
         const moverObstaculo = setInterval(() => {

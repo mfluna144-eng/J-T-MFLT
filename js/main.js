@@ -48,17 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function actualizarNivelYFondo() {
-
         if (score % 5 === 0) {
             nivel = score / 5 + 1;
 
-
             if (nivel % 2 === 0) {
-
                 juegoContenedor.style.background =
                     "linear-gradient(#0A0F24, #1C1C3C)";
             } else {
-
                 juegoContenedor.style.background =
                     "linear-gradient(#87CEEB, #FFFFFF)";
             }
@@ -73,22 +69,21 @@ document.addEventListener('DOMContentLoaded', () => {
         obstacle.classList.add('obstaculo');
         juegoContenedor.appendChild(obstacle);
 
+        // ⭐ AUMENTAR VELOCIDAD SEGÚN NIVEL ⭐
+        let velocidad = 10 + (nivel - 1) * 2;
+
         const moverObstaculo = setInterval(() => {
             if (obstaclePosition < -30) {
                 clearInterval(moverObstaculo);
                 juegoContenedor.removeChild(obstacle);
 
-
                 score++;
 
-
                 actualizarNivelYFondo();
-
 
                 puntuacionDisplay.textContent =
                     `Jugador: ${apodo} | Puntos: ${score} | Nivel: ${nivel}`;
             }
-
 
             if (
                 obstaclePosition > 50 &&
@@ -105,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 suelo.style.animationPlayState = 'pause';
             }
 
-            obstaclePosition -= 10;
+            obstaclePosition -= velocidad; // 🔥 velocidad dinámica por nivel
             obstacle.style.left = obstaclePosition + 'px';
         }, 20);
     }
@@ -125,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mensajeJuego.style.display = 'none';
         suelo.style.animationPlayState = 'running';
-
 
         juegoContenedor.style.background =
             "linear-gradient(#87CEEB, #FFFFFF)";

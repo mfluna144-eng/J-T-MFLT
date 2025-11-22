@@ -16,7 +16,7 @@ body {
     width: 900px;
     height: 200px;
     border: 5px solid #fff;
-    background-color: #0056B3 ;
+    background-color: #0056B3;
     position: relative;
     /* Para posicionar elementos internos */
     overflow: hidden;
@@ -122,4 +122,45 @@ body {
     color: #fff;
     font-size: 1em;
     z-index: 100;
+}
+
+@keyframes electrocutado {
+    0% {
+        filter: brightness(1) hue-rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    25% {
+        filter: brightness(2) hue-rotate(90deg);
+        transform: rotate(5deg);
+    }
+
+    50% {
+        filter: brightness(3) hue-rotate(180deg);
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        filter: brightness(2) hue-rotate(270deg);
+        transform: rotate(3deg);
+    }
+
+    100% {
+        filter: brightness(1) hue-rotate(360deg);
+        transform: rotate(0deg);
+    }
+}
+
+.electrocutado {
+    animation: electrocutado 0.3s linear 3;
+}
+
+.chispa {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: chispaAnim 0.2s linear;
 }

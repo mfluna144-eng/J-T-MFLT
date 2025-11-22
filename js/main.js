@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    // APODO
     let apodo = prompt("Ingrese su apodo:");
     if (!apodo) apodo = "Jugador";
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 🟦 SALTO DEL PERSONAJE
+
     function jump() {
         if (isJumping || gameOver) return;
         isJumping = true;
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 20);
     }
 
-    // 🌗 CAMBIO DE NIVEL + DÍA/NOCHE
+    // CAMBIO DE NIVEL + DÍA/NOCHE
     function actualizarNivelYFondo() {
         if (score % 5 === 0) {
             nivel = score / 5 + 1;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 🟥 GENERAR OBSTÁCULO
+
     function generarObstaculo() {
         if (gameOver) return;
 
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const moverObstaculo = setInterval(() => {
 
-            // Obstáculo salió → punto
+
             if (obstaclePosition < -30) {
                 clearInterval(moverObstaculo);
                 juegoContenedor.removeChild(obstacle);
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `Jugador: ${apodo} | Puntos: ${score} | Nivel: ${nivel}`;
             }
 
-            // ⚡ COLISIÓN
+
             if (
                 obstaclePosition > 50 &&
                 obstaclePosition < 100 &&
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 20);
     }
 
-    // 🟩 INICIAR JUEGO
+
     function iniciarJuego() {
         if (!gameOver) return;
 
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         obstacleInterval = setInterval(generarObstaculo, 2000);
     }
 
-    // 🟧 CONTROLES
+
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Space') {
             iniciarJuego();
